@@ -1077,6 +1077,19 @@ mark {
     opacity: 1 !important;
 }
 
+/* ===== FIX LOGO COLOUR OVERRIDE ===== */
+.nav-logo img {
+    height: 40px;
+    width: auto;
+
+    /* HARD RESET any previous filters */
+    filter: none !important;
+    -webkit-filter: none !important;
+
+    /* Optional: subtle depth without colour loss */
+    drop-shadow: none;
+}
+
 
 
 
