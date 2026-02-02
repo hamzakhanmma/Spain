@@ -1067,6 +1067,16 @@ mark {
     color: #ffffff !important;
 }
 
+/* =========================
+   FORCE LOGO COLOURS (OVERRIDE)
+========================= */
+.nav-logo img {
+    filter: none !important;
+    -webkit-filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+}
+
 
 
 
