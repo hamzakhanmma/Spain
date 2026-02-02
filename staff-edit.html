@@ -81,16 +81,35 @@ function showAdminPanel() {
     }
 }
 
+<script>
 function saveContent() {
-    const content = document.getElementById('editable-content').value;
-    localStorage.setItem('portalContent', content);
-    alert('Content saved successfully!');
+  const content = document.getElementById("editable-content").value;
+
+  db.collection("pages").doc("homepage").set({
+    html: content,
+    updatedAt: new Date()
+  })
+  .then(() => {
+    alert("Homepage updated successfully!");
+  })
+  .catch(err => {
+    alert("Error saving content");
+    console.error(err);
+  });
 }
+</script>
 
 function loadContent() {
-    const savedContent = localStorage.getItem('portalContent') || 'No content saved yet.';
-    document.getElementById('editable-content').value = savedContent;
+  db.collection("pages").doc("homepage").get()
+    .then(doc => {
+      if (doc.exists) {
+        document.getElementById("editable-content").value = doc.data().html;
+      } else {
+        alert("No content found.");
+      }
+    });
 }
+
 
 function resetEditor() {
     if(confirm('Clear the editor?')) {
@@ -153,3 +172,4 @@ function viewRegistrations() {
 </body>
 
 </html>
+
