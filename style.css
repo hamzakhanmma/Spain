@@ -1023,4 +1023,35 @@ mark {
     margin: 1.5rem 0;
 }
 
+/* =========================================
+   NAVBAR COLOR OVERRIDE (FINAL)
+   This FORCE overrides any red navbar
+========================================= */
+
+.main-nav {
+    background: linear-gradient(
+        135deg,
+        #5db6e6 0%,
+        #4FA3D1 100%
+    ) !important;
+}
+
+/* Ensure links stay white */
+.main-nav a,
+.main-nav span {
+    color: #ffffff !important;
+}
+
+/* Logo glass effect stays readable */
+.nav-logo {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Staff button contrast */
+.staff-link {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
 
