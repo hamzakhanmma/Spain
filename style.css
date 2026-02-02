@@ -1091,6 +1091,33 @@ mark {
     drop-shadow: none;
 }
 
+/* =========================
+   ABSOLUTE LOGO OVERRIDE
+   (LAST RULE WINS)
+========================= */
+
+.main-nav .nav-logo {
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 10px !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.main-nav .nav-logo span {
+    color: #0055A4 !important; /* blue text */
+    text-shadow: none !important;
+}
+
+.main-nav .nav-logo img {
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
+}
+
 
 
 
