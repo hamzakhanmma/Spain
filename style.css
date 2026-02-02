@@ -62,7 +62,7 @@ body {
 }
 
 /* =========================
-   LOGO AREA (SOLID WHITE)
+   LOGO AREA – SOLID VERSION
 ========================= */
 .nav-logo {
     display: flex;
@@ -70,36 +70,36 @@ body {
     gap: 15px;
     padding: 8px 16px;
 
-    background: #ffffff;                 /* SOLID WHITE */
+    background: #ffffff;              /* SOLID WHITE */
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.15);
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
     /* REMOVE glass effect */
     backdrop-filter: none;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    -webkit-backdrop-filter: none;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* Logo image */
 .nav-logo img {
     height: 40px;
     width: auto;
-
-    /* KEEP LOGO FULL COLOUR */
-    filter: none !important;
+    filter: none;
 }
 
+/* Logo text */
 .nav-logo span {
-    color: var(--secondary-blue);         /* BLUE TEXT */
+    color: #0055A4; /* strong blue */
     font-weight: bold;
     text-shadow: none;
 }
 
-/* Hover (clean & subtle) */
+/* Hover (optional, subtle) */
 .nav-logo:hover {
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
+
 
 /* =========================
    NAVIGATION LINKS
