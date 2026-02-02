@@ -64,35 +64,41 @@ body {
 /* =========================
    LOGO AREA
 ========================= */
+/* LOGO AREA – WHITE BACKGROUND */
 .nav-logo {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 8px 15px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(5px);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    padding: 8px 16px;
+
+    background: #ffffff;              /* solid white */
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Logo image */
 .nav-logo img {
     height: 40px;
     width: auto;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
-    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: none !important;
 }
 
+/* Text next to logo */
 .nav-logo span {
-    color: #ffffff;
+    color: var(--secondary-blue);      /* blue text */
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
 }
 
-/* Logo hover */
+/* Optional hover (subtle, clean) */
 .nav-logo:hover {
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
 }
 
 .nav-logo:hover img {
@@ -1089,6 +1095,7 @@ mark {
     /* Optional: subtle depth without colour loss */
     drop-shadow: none;
 }
+
 
 
 
