@@ -62,48 +62,43 @@ body {
 }
 
 /* =========================
-   LOGO AREA
+   LOGO AREA (SOLID WHITE)
 ========================= */
-/* LOGO AREA – WHITE BACKGROUND */
 .nav-logo {
     display: flex;
     align-items: center;
     gap: 15px;
     padding: 8px 16px;
 
-    background: #ffffff;              /* solid white */
+    background: #ffffff;                 /* SOLID WHITE */
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.15);
 
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    /* REMOVE glass effect */
+    backdrop-filter: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* Logo image */
 .nav-logo img {
     height: 40px;
     width: auto;
+
+    /* KEEP LOGO FULL COLOUR */
     filter: none !important;
 }
 
-/* Text next to logo */
 .nav-logo span {
-    color: var(--secondary-blue);      /* blue text */
+    color: var(--secondary-blue);         /* BLUE TEXT */
     font-weight: bold;
     text-shadow: none;
 }
 
-/* Optional hover (subtle, clean) */
+/* Hover (clean & subtle) */
 .nav-logo:hover {
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
     transform: translateY(-1px);
-    transition: all 0.2s ease;
-}
-
-}
-
-.nav-logo:hover img {
-    transform: scale(1.05);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
 }
 
 /* =========================
@@ -1095,6 +1090,7 @@ mark {
     /* Optional: subtle depth without colour loss */
     drop-shadow: none;
 }
+
 
 
 
