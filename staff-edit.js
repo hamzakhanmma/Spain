@@ -1,1 +1,11 @@
+{
+  "main_title": "Spain International Work Experience 2025/26",
 
+  "admin_content": "<p>Welcome to the Spain Work Experience programme.</p><p>Please make sure you complete all required steps before departure.</p>",
+
+  "contact_name": "Jodie Rolls",
+  "contact_phone": "📞 07818 588378",
+  "contact_role": "📧 International Work Experience Coordinator",
+
+  "footer_text": "Leicester College | Spain Work Experience 2025/26"
+}
