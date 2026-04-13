@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Spain Work Experience 2025/26</title>
+    <title>Greece Work Experience 2025/26</title>
 
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
@@ -13,7 +13,7 @@
 <nav class="main-nav">
     <div class="nav-logo">
         <img src="logo.png" alt="Leicester College Logo" height="100">
-        <span>🇪🇸 Spain 2025/26</span>
+        <span id="site_title">Greece 2025/26</span>
     </div>
     <ul>
         <li><a href="index.html">Home</a></li>
@@ -26,73 +26,105 @@
 
 <main>
 
-    <!-- TITLE -->
-    <h1 id="diary_title">Reflective Diary</h1>
+<form id="registration-form">
 
-    <!-- INTRO -->
-    <p id="diary_intro">
-        Use this diary to reflect on your daily experiences during your work placement
-        in Spain. This will support your learning and future assignments.
-    </p>
+  <!-- NAME -->
+  <div class="form-group">
+    <label for="student-name" id="reg_name_label">Full Name *</label>
+    <input type="text" id="student-name" placeholder="Enter your full name" required>
+  </div>
+  
+  <!-- STUDENT ID -->
+  <div class="form-group">
+    <label for="student-id" id="reg_id_label">Student ID *</label>
+    <input type="text" id="student-id" placeholder="Enter your student ID" required>
+  </div>
+  
+  <!-- EMAIL -->
+  <div class="form-group">
+    <label for="email" id="reg_email_label">Email Address *</label>
+    <input type="email" id="email" placeholder="Enter your college email" required>
+  </div>
+  
+  <!-- PHONE -->
+  <div class="form-group">
+    <label for="phone" id="reg_phone_label">Phone Number</label>
+    <input type="tel" id="phone" placeholder="Enter your phone number">
+  </div>
+  
+  <!-- RULES -->
+  <div class="checkbox-group">
+    <label id="reg_rules_text">
+      <input type="checkbox" id="confirm-rules" required> 
+      I confirm that I have read and understood all information in this portal and agree to follow the rules and expectations of the Greece work experience.
+    </label>
+  </div>
+  
+  <!-- 3 STRIKE -->
+  <div class="checkbox-group">
+    <label id="reg_strike_text">
+      <input type="checkbox" id="confirm-three-strike" required> 
+      I understand the 3-strike rule, curfew expectations, and that serious misconduct may result in being sent home at my own expense.
+    </label>
+  </div>
+  
+  <!-- HEALTH -->
+  <div class="checkbox-group">
+    <label id="reg_health_text">
+      <input type="checkbox" id="confirm-health" required> 
+      I confirm all my medical information is up to date with the college and I will bring necessary medications and my GHIC card.
+    </label>
+  </div>
+  
+  <!-- EMERGENCY -->
+  <div class="form-group">
+    <label for="emergency-contact" id="reg_emergency_label">Emergency Contact Name & Number *</label>
+    <input type="text" id="emergency-contact" placeholder="Name: Phone Number" required>
+  </div>
+  
+  <!-- DIETARY -->
+  <div class="form-group">
+    <label for="dietary" id="reg_dietary_label">Any Dietary Requirements or Allergies?</label>
+    <textarea id="dietary" placeholder="List any dietary requirements or allergies..."></textarea>
+  </div>
+  
+  <!-- SUBMIT -->
+  <button type="submit" class="submit-btn" id="reg_submit_btn">
+    Submit Registration
+  </button>
 
-    <section class="diary-section">
+</form>
 
-        <!-- FORM (DO NOT TOUCH IDS HERE) -->
-        <form id="diaryForm" class="card">
-            <h2 id="diary_form_title">New Entry</h2>
-
-            <div class="form-group">
-                <label for="entryDate"><strong>Date</strong></label>
-                <input type="date" id="entryDate" required>
-            </div>
-
-            <div class="form-group">
-                <label for="entryTitle"><strong>Title</strong></label>
-                <input type="text" id="entryTitle" placeholder="e.g. First day at placement">
-            </div>
-
-            <div class="form-group">
-                <label for="entryContent"><strong>Reflection</strong></label>
-                <textarea id="entryContent" rows="6"
-                    placeholder="What did you do today? What went well? What did you learn?"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label><strong>Upload Photo (optional)</strong></label>
-                <input type="file" id="photo-upload" accept="image/*" onchange="handlePhotoUpload(event)">
-                
-                <div id="photo-preview-container" style="margin-top: 10px; display: none;">
-                    <img id="photo-preview" style="max-width: 200px; border-radius: 5px;">
-                    <button type="button" onclick="removePhoto()" style="margin-left: 10px; padding: 5px 10px;">
-                        Remove Photo
-                    </button>
-                </div>
-            </div>
-
-            <button type="submit" class="btn-primary" id="diary_save_button">
-                Save Entry
-            </button>
-        </form>
-
-        <!-- PREVIOUS ENTRIES -->
-        <section style="margin-top:2rem;">
-            <h2 id="diary_previous_title">Previous Entries</h2>
-
-            <p id="diary_previous_text">
-                Your saved diary entries will appear here.
-            </p>
-
-            <div class="card" id="diary_empty_state">
-                <p><em>No entries saved yet.</em></p>
-            </div>
-        </section>
-
-    </section>
+<script>
+document.getElementById('registration-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const registrationData = {
+    name: document.getElementById('student-name').value,
+    studentId: document.getElementById('student-id').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    emergencyContact: document.getElementById('emergency-contact').value,
+    dietary: document.getElementById('dietary').value,
+    confirmedRules: document.getElementById('confirm-rules').checked,
+    confirmedThreeStrike: document.getElementById('confirm-three-strike').checked,
+    confirmedHealth: document.getElementById('confirm-health').checked,
+    timestamp: new Date().toISOString()
+  };
+  
+  localStorage.setItem('studentRegistration', JSON.stringify(registrationData));
+  localStorage.setItem('studentRegistered', 'true');
+  
+  alert(`Registration successful!\n\nThank you ${registrationData.name} (ID: ${registrationData.studentId}).\nYour registration has been recorded.`);
+  
+  this.reset();
+});
+</script>
 
 </main>
 
 <footer class="site-footer">
-    <p id="footer_text">Leicester College | Spain Work Experience 2025/26</p>
+    <p id="footer_text">Leicester College | Greece Work Experience 2025/26</p>
 </footer>
 
 </body>
