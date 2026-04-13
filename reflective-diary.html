@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <title>Spain Work Experience 2025/26</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- JavaScript -->
     <script src="main.js" defer></script>
 </head>
 
 <body>
 
 <nav class="main-nav">
-    <!-- Logo added here -->
     <div class="nav-logo">
         <img src="logo.png" alt="Leicester College Logo" height="100">
         <span>🇪🇸 Spain 2025/26</span>
@@ -29,16 +25,21 @@
 </nav>
 
 <main>
-    <h1>Reflective Diary</h1>
 
-    <p>
+    <!-- TITLE -->
+    <h1 id="diary_title">Reflective Diary</h1>
+
+    <!-- INTRO -->
+    <p id="diary_intro">
         Use this diary to reflect on your daily experiences during your work placement
         in Spain. This will support your learning and future assignments.
     </p>
 
     <section class="diary-section">
+
+        <!-- FORM (DO NOT TOUCH IDS HERE) -->
         <form id="diaryForm" class="card">
-            <h2>New Entry</h2>
+            <h2 id="diary_form_title">New Entry</h2>
 
             <div class="form-group">
                 <label for="entryDate"><strong>Date</strong></label>
@@ -59,33 +60,39 @@
             <div class="form-group">
                 <label><strong>Upload Photo (optional)</strong></label>
                 <input type="file" id="photo-upload" accept="image/*" onchange="handlePhotoUpload(event)">
-                <!-- Photo preview will appear here -->
+                
                 <div id="photo-preview-container" style="margin-top: 10px; display: none;">
                     <img id="photo-preview" style="max-width: 200px; border-radius: 5px;">
-                    <button type="button" onclick="removePhoto()" style="margin-left: 10px; padding: 5px 10px;">Remove Photo</button>
+                    <button type="button" onclick="removePhoto()" style="margin-left: 10px; padding: 5px 10px;">
+                        Remove Photo
+                    </button>
                 </div>
             </div>
 
-            <button type="submit" class="btn-primary">
+            <button type="submit" class="btn-primary" id="diary_save_button">
                 Save Entry
             </button>
         </form>
 
+        <!-- PREVIOUS ENTRIES -->
         <section style="margin-top:2rem;">
-            <h2>Previous Entries</h2>
-            <p>
+            <h2 id="diary_previous_title">Previous Entries</h2>
+
+            <p id="diary_previous_text">
                 Your saved diary entries will appear here.
             </p>
 
-            <div class="card">
+            <div class="card" id="diary_empty_state">
                 <p><em>No entries saved yet.</em></p>
             </div>
         </section>
+
     </section>
+
 </main>
 
 <footer class="site-footer">
-    Leicester College | Spain Work Experience 2025/26
+    <p id="footer_text">Leicester College | Spain Work Experience 2025/26</p>
 </footer>
 
 </body>
