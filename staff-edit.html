@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>Staff Editor - Spain Work Experience Portal</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <script src="staff-edit.js" defer></script>
 </head>
 <body>
 <nav class="main-nav">
-    <!-- Logo added here -->
     <div class="nav-logo">
         <img src="logo.png" alt="Leicester College Logo" height="100">
         <span>🇪🇸 Spain 2025/26</span>
@@ -21,13 +20,6 @@
         <li><a href="staff-edit.html" class="staff-link">Staff Editor</a></li>
     </ul>
 </nav>
-<nav class="main-nav">
-    <div>🇪🇸 Spain 2025/26 - Staff Area</div>
-    <ul>
-        <li><a href="index.html">Back to Portal</a></li>
-        <li><a href="#" onclick="showAdminPanel()">Access Editor</a></li>
-    </ul>
-</nav>
 
 <main class="staff-main">
     <div class="staff-intro">
@@ -37,30 +29,42 @@
         <p><small>Password: admin123</small></p>
     </div>
 
-    <!-- Hidden admin panel accessible via password -->
     <div id="admin-panel" style="display:none;">
         <h2>Portal Content Editor</h2>
-        
+
         <div class="editor-section">
-            <h3>Edit Homepage Content</h3>
-            <textarea id="editable-content" rows="10" placeholder="Paste content to edit here..."></textarea>
-            <div class="editor-buttons">
-                <button onclick="saveContent()" class="btn-primary">Save Changes</button>
-                <button onclick="loadContent()" class="btn-secondary">Load Current Content</button>
-                <button onclick="resetEditor()" class="btn-secondary">Clear</button>
-            </div>
+            <h3>Edit Homepage Texts</h3>
+            <label for="main_title">Homepage Title:</label>
+            <input type="text" id="main_title" placeholder="Main title here">
+
+            <label for="admin_content">Admin-Editable Section (HTML allowed):</label>
+            <textarea id="admin_content" rows="5"></textarea>
+
+            <label for="contact_name">Contact Name:</label>
+            <input type="text" id="contact_name">
+
+            <label for="contact_phone">Contact Phone:</label>
+            <input type="text" id="contact_phone">
+
+            <label for="contact_role">Contact Role/Email:</label>
+            <input type="text" id="contact_role">
+
+            <label for="footer_text">Footer Text:</label>
+            <input type="text" id="footer_text">
+
+            <label for="trip_date">Trip Date (for countdown):</label>
+            <input type="datetime-local" id="trip_date">
         </div>
-        
-        <div class="editor-section">
-            <h3>Upload New Document</h3>
-            <input type="file" id="document-upload">
-            <button onclick="uploadDocument()" class="btn-secondary">Upload</button>
+
+        <div class="editor-buttons">
+            <button onclick="generateJSON()" class="btn-primary">Generate JSON</button>
+            <button onclick="loadJSON()" class="btn-secondary">Load Current JSON</button>
+            <button onclick="clearEditor()" class="btn-secondary">Clear</button>
         </div>
-        
+
         <div class="editor-section">
-            <h3>View Registrations</h3>
-            <button onclick="viewRegistrations()" class="btn-secondary">View Registered Students</button>
-            <div id="registration-list" style="margin-top: 15px;"></div>
+            <h3>JSON Output (copy to texts.json)</h3>
+            <textarea id="json-output" rows="10" readonly></textarea>
         </div>
     </div>
 </main>
@@ -69,9 +73,62 @@
     Leicester College | Staff Portal | Spain Work Experience 2025/26
 </footer>
 
+<script>
+function showAdminPanel() {
+    const pwd = prompt('Enter password to access editor:');
+    if (pwd === 'admin123') {
+        document.getElementById('admin-panel').style.display = 'block';
+    } else {
+        alert('Incorrect password!');
+    }
+}
+
+async function loadJSON() {
+    try {
+        const res = await fetch('texts.json');
+        const data = await res.json();
+
+        document.getElementById('main_title').value = data.main_title || '';
+        document.getElementById('admin_content').value = data.admin_content || '';
+        document.getElementById('contact_name').value = data.contact_name || '';
+        document.getElementById('contact_phone').value = data.contact_phone || '';
+        document.getElementById('contact_role').value = data.contact_role || '';
+        document.getElementById('footer_text').value = data.footer_text || '';
+        
+        // Convert trip_date to input-friendly format
+        if (data.trip_date) {
+            const dt = new Date(data.trip_date);
+            const localISO = dt.toISOString().slice(0,16);
+            document.getElementById('trip_date').value = localISO;
+        }
+
+    } catch (err) {
+        console.error('Failed to load JSON:', err);
+        alert('Could not load texts.json.');
+    }
+}
+
+function generateJSON() {
+    const data = {
+        main_title: document.getElementById('main_title').value,
+        admin_content: document.getElementById('admin_content').value,
+        contact_name: document.getElementById('contact_name').value,
+        contact_phone: document.getElementById('contact_phone').value,
+        contact_role: document.getElementById('contact_role').value,
+        footer_text: document.getElementById('footer_text').value,
+        trip_date: new Date(document.getElementById('trip_date').value).toString()
+    };
+
+    document.getElementById('json-output').value = JSON.stringify(data, null, 4);
+}
+
+function clearEditor() {
+    document.querySelectorAll('#admin-panel input, #admin-panel textarea').forEach(el => el.value = '');
+    document.getElementById('json-output').value = '';
+}
+
+// Load JSON automatically when page loads
+window.addEventListener('DOMContentLoaded', loadJSON);
+</script>
 </body>
-
 </html>
-
-
-
