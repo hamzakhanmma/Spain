@@ -23,34 +23,38 @@
 </nav>
 
 <main>
+
     <div class="page-header">
-        <h1>Daily Itinerary & Schedule</h1>
+        <h1 id="itinerary_title">Daily Itinerary & Schedule</h1>
         <img src="group.jfif" alt="Previous Students" class="hero-image">
-        <p>Your complete schedule for the Spain work experience trip</p>
+        <p id="itinerary_subtitle">Your complete schedule for the Spain work experience trip</p>
     </div>
 
     <!-- Trip Overview -->
     <section class="card">
-        <h2>📅 Trip Overview</h2>
+        <h2 id="itinerary_overview_title">📅 Trip Overview</h2>
         <div class="info-card">
             <img src="images/itinerary/calendar.jpg" alt="Calendar">
             <div class="info-card-content">
-                <h3>4-Week Program Structure</h3>
-                <p><strong>Duration:</strong> 4 weeks (Monday to Friday work placements)</p>
-                <p><strong>Dates:</strong> June 1 - June 28, 2026</p>
-                <p><strong>Location:</strong> Lebrija, Andalusia, Spain</p>
-                <p><strong>Weekend Activities:</strong> Cultural trips to Seville, Cádiz, and local experiences</p>
-                <div class="alert alert-info">
+                <h3 id="itinerary_structure_title">4-Week Program Structure</h3>
+
+                <p id="itinerary_duration"><strong>Duration:</strong> 4 weeks (Monday to Friday work placements)</p>
+                <p id="itinerary_dates"><strong>Dates:</strong> June 1 - June 28, 2026</p>
+                <p id="itinerary_location"><strong>Location:</strong> Lebrija, Andalusia, Spain</p>
+                <p id="itinerary_weekends"><strong>Weekend Activities:</strong> Cultural trips to Seville, Cádiz, and local experiences</p>
+
+                <div class="alert alert-info" id="itinerary_note">
                     ⏰ <strong>Note:</strong> All times are in Spanish local time (CEST)
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Weekly Schedule Table -->
+    <!-- Weekly Schedule -->
     <section class="card" style="margin-top: 2rem;">
-        <h2>📋 Weekly Schedule Template</h2>
-        
+        <h2 id="itinerary_schedule_title">📋 Weekly Schedule Template</h2>
+
+        <!-- ❗ TABLE LEFT STATIC (too complex to JSON safely) -->
         <table class="themed-table">
             <thead>
                 <tr>
@@ -113,150 +117,54 @@
         </table>
     </section>
 
-    <!-- Week-by-Week Breakdown -->
+    <!-- Week Sections (ONLY TITLES EDITABLE) -->
     <section class="card" style="margin-top: 2rem;">
-        <h2>🗓️ Week-by-Week Breakdown</h2>
-        
+        <h2 id="itinerary_weeks_title">🗓️ Week-by-Week Breakdown</h2>
+
         <div class="itinerary-week">
-            <h3>🏁 Week 1: Arrival & Orientation (June 1-7)</h3>
-            <div class="day-schedule">
-                <div class="day-card">
-                    <h4>Sunday, June 1</h4>
-                    <ul>
-                        <li>09:00 - Meet at Leicester College</li>
-                        <li>10:00 - Coach to Manchester Airport</li>
-                        <li>14:00 - Flight to Seville (SVQ)</li>
-                        <li>18:00 - Arrival in Spain</li>
-                        <li>19:30 - Transfer to Lebrija accommodation</li>
-                        <li>20:30 - Welcome dinner & orientation</li>
-                    </ul>
-                </div>
-                <div class="day-card">
-                    <h4>Monday, June 2</h4>
-                    <ul>
-                        <li>09:00 - Town orientation walk</li>
-                        <li>11:00 - Meet work placement employers</li>
-                        <li>13:00 - Lunch with supervisors</li>
-                        <li>15:00 - Spanish language basics workshop</li>
-                        <li>17:00 - Supermarket shopping trip</li>
-                        <li>19:00 - Group cooking session</li>
-                    </ul>
-                </div>
-                <div class="day-card">
-                    <h4>Tuesday-Friday</h4>
-                    <ul>
-                        <li>08:00 - Work placement begins</li>
-                        <li>14:00 - Daily debrief with staff</li>
-                        <li>16:00 - Tuesday: Spanish lesson</li>
-                        <li>16:00 - Thursday: Spanish lesson</li>
-                        <li>Evening: Free time & group activities</li>
-                    </ul>
-                </div>
-            </div>
+            <h3 id="week1_title">🏁 Week 1: Arrival & Orientation (June 1-7)</h3>
         </div>
 
         <div class="itinerary-week" style="margin-top: 2rem;">
-            <h3>⭐ Week 2: Settling In (June 8-14)</h3>
-            <div class="day-card">
-                <h4>Saturday, June 14 - Seville Day Trip</h4>
-                <ul>
-                    <li>08:00 - Depart for Seville</li>
-                    <li>10:00 - Guided tour of Seville Cathedral</li>
-                    <li>12:00 - Visit Real Alcázar palace</li>
-                    <li>14:00 - Traditional Spanish lunch</li>
-                    <li>16:00 - Free time for shopping & photos</li>
-                    <li>19:00 - Flamenco show experience</li>
-                    <li>21:30 - Return to Lebrija</li>
-                </ul>
-            </div>
+            <h3 id="week2_title">⭐ Week 2: Settling In (June 8-14)</h3>
         </div>
 
         <div class="itinerary-week" style="margin-top: 2rem;">
-            <h3>🏖️ Week 3: Beach & Culture (June 15-21)</h3>
-            <div class="day-card">
-                <h4>Saturday, June 21 - Cádiz Beach Day</h4>
-                <ul>
-                    <li>09:00 - Depart for Cádiz</li>
-                    <li>10:30 - Arrive at La Caleta beach</li>
-                    <li>11:00 - Beach activities & swimming</li>
-                    <li>13:30 - Seafood lunch by the sea</li>
-                    <li>15:30 - Explore Cádiz old town</li>
-                    <li>18:00 - Sunset views</li>
-                    <li>20:00 - Return to accommodation</li>
-                </ul>
-            </div>
+            <h3 id="week3_title">🏖️ Week 3: Beach & Culture (June 15-21)</h3>
         </div>
 
         <div class="itinerary-week" style="margin-top: 2rem;">
-            <h3>🎓 Week 4: Final Week & Departure (June 22-28)</h3>
-            <div class="day-card">
-                <h4>Friday, June 27 - Farewell Event</h4>
-                <ul>
-                    <li>14:00 - Last day of work placement</li>
-                    <li>16:00 - Certificates & presentations</li>
-                    <li>18:00 - Farewell dinner with employers</li>
-                    <li>20:00 - Cultural exchange party</li>
-                </ul>
-            </div>
-            <div class="day-card">
-                <h4>Saturday, June 28 - Return Travel</h4>
-                <ul>
-                    <li>08:00 - Pack & clean accommodation</li>
-                    <li>10:00 - Depart for Seville Airport</li>
-                    <li>12:00 - Check-in & security</li>
-                    <li>14:00 - Flight to Manchester</li>
-                    <li>17:00 - Arrival in UK</li>
-                    <li>18:00 - Coach to Leicester College</li>
-                    <li>20:00 - Reunion with families</li>
-                </ul>
-            </div>
+            <h3 id="week4_title">🎓 Week 4: Final Week & Departure (June 22-28)</h3>
         </div>
     </section>
 
-    <!-- Important Notes -->
+    <!-- Notes -->
     <section class="card callout callout-primary" style="margin-top: 2rem;">
-        <h2>📝 Important Notes</h2>
+        <h2 id="itinerary_notes_title">📝 Important Notes</h2>
+
         <div class="side-by-side">
             <div>
-                <h3>🕐 Punctuality</h3>
-                <p>Being on time is essential for work placements and group activities. Spanish employers value punctuality.</p>
+                <h3 id="note1_title">🕐 Punctuality</h3>
+                <p id="note1_text">Being on time is essential for work placements and group activities.</p>
             </div>
             <div>
-                <h3>📱 Communication</h3>
-                <p>Daily WhatsApp check-ins are mandatory. Staff will confirm attendance and wellbeing.</p>
-            </div>
-        </div>
-        <div class="side-by-side" style="margin-top: 1rem;">
-            <div>
-                <h3>👔 Dress Code</h3>
-                <p>Work placements require appropriate PPE. Cultural sites may require modest dress (covered shoulders/knees).</p>
-            </div>
-            <div>
-                <h3>🍽️ Meals</h3>
-                <p>Breakfast and dinner are self-catered in accommodation. Lunch is provided at work placements or during trips.</p>
+                <h3 id="note2_title">📱 Communication</h3>
+                <p id="note2_text">Daily WhatsApp check-ins are mandatory.</p>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
+    <!-- Download -->
     <section class="card" style="margin-top: 2rem; text-align: center;">
-        <h2>📥 Download Itinerary</h2>
-        <p>Download a printable version of the itinerary for your reference:</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
-            <a href="documents/spain-itinerary.pdf" class="btn-primary" download>
-                📄 Download PDF Version
-            </a>
-            <a href="documents/spain-itinerary.ics" class="btn-secondary">
-                📅 Add to Calendar
-            </a>
-        </div>
+        <h2 id="itinerary_download_title">📥 Download Itinerary</h2>
+        <p id="itinerary_download_text">Download a printable version of the itinerary for your reference:</p>
     </section>
 
 </main>
 
 <footer class="site-footer">
-    <img src="images/leicester-college-logo.png" alt="Leicester College Logo" height="40">
-    <p>Leicester College | Spain Work Experience Itinerary 2025/26</p>
+    <img src="images/leicester-college-logo.png" height="40">
+    <p id="footer_text">Leicester College | Spain Work Experience Itinerary 2025/26</p>
 </footer>
 
 </body>
