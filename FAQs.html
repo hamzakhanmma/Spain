@@ -11,7 +11,7 @@
 <nav class="main-nav">
     <div class="nav-logo">
         <img src="logo.png" alt="Leicester College Logo" height="40">
-        <span>🇪🇸 Spain 2025/26</span>
+        <span id="faqs_nav_title">🇪🇸 Spain 2025/26</span>
     </div>
     <ul>
         <li><a href="index.html">Home</a></li>
@@ -24,7 +24,10 @@
 
 <main>
 
-    <!-- Search Bar (keep as is) -->
+    <h1 id="faqs_title">Frequently Asked Questions</h1>
+    <p id="faqs_intro">Find answers to common questions about the Spain work experience</p>
+
+    <!-- Search Bar (unchanged) -->
     <div class="card" style="margin-bottom: 2rem;">
         <div class="search-container">
             <input type="text" id="faq-search" placeholder="Search for a question or topic..." 
@@ -32,19 +35,47 @@
         </div>
     </div>
 
-    <!-- ✅ THIS IS THE KEY CHANGE -->
-    <div id="faqs_content"></div>
+    <!-- SAMPLE FAQ ITEMS (you will keep adding more like this) -->
+    <div class="faq-container">
 
-    <!-- Contact Section (optional dynamic later) -->
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3 id="faq_q1">Where is the meeting point for departure?</h3>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p id="faq_a1">
+                    The meeting point is at McDonalds, Meridian Business Park, Leicester. 
+                    Students must arrive by 9:00 AM. Coach transfer is provided.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3 id="faq_q2">What is the luggage allowance?</h3>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p id="faq_a2">
+                    Cabin bag + 20kg checked baggage. Liquids must be under 100ml.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Contact Section -->
     <div class="card" style="margin-top: 3rem; text-align: center;">
-        <h2>❓ Still Have Questions?</h2>
-        <p>Contact our International Work Experience Coordinator:</p>
+        <h2 id="faqs_contact_title">❓ Still Have Questions?</h2>
+        <p id="faqs_contact_text">Contact our International Work Experience Coordinator:</p>
+        
         <div class="info-card" style="max-width: 500px; margin: 1rem auto;">
             <img src="images/jodie-rolls.jpg" style="width: 100px; height: 100px; border-radius: 50%;">
             <div>
-                <h3 id="contact-name">Loading...</h3>
-                <p id="contact-phone"></p>
-                <p id="contact-role"></p>
+                <h3 id="contact_name">Jodie Rolls</h3>
+                <p id="contact_phone">07818 588378</p>
+                <p id="contact_role">Coordinator</p>
             </div>
         </div>
     </div>
@@ -52,16 +83,13 @@
 </main>
 
 <footer class="site-footer">
-    <p id="footer-text">Loading...</p>
+    <p id="footer_text">Leicester College | Spain Work Experience FAQs 2025/26</p>
 </footer>
 
-<!-- KEEP YOUR SCRIPT EXACTLY -->
 <script>
-// (UNCHANGED — your full FAQ JS stays here)
+// KEEP YOUR ORIGINAL JS
 document.addEventListener('DOMContentLoaded', function() {
     const faqQuestions = document.querySelectorAll('.faq-question');
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const searchInput = document.getElementById('faq-search');
     
     faqQuestions.forEach(question => {
         question.addEventListener('click', function() {
