@@ -1,9 +1,10 @@
-```javascript
 // ============================================
 // SAFE HELPERS
 // ============================================
+
 function setText(id, value) {
     const el = document.getElementById(id);
+
     if (el && value !== undefined) {
         el.textContent = value;
     }
@@ -11,6 +12,7 @@ function setText(id, value) {
 
 function setHTML(id, value) {
     const el = document.getElementById(id);
+
     if (el && value !== undefined) {
         el.innerHTML = value;
     }
@@ -20,7 +22,14 @@ function setList(id, items) {
     const el = document.getElementById(id);
 
     if (el && Array.isArray(items)) {
-        el.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+
+        let html = "";
+
+        items.forEach(item => {
+            html += `<li>${item}</li>`;
+        });
+
+        el.innerHTML = html;
     }
 }
 
