@@ -25,9 +25,26 @@
 
         <h2>Content Editor</h2>
 
-        <div id="fields-container"></div>
+        <label>Main Title</label><br>
+        <input id="main_title"><br><br>
 
-        <br>
+        <label>Admin Content</label><br>
+        <textarea id="admin_content"></textarea><br><br>
+
+        <label>Contact Name</label><br>
+        <input id="contact_name"><br><br>
+
+        <label>Contact Phone</label><br>
+        <input id="contact_phone"><br><br>
+
+        <label>Contact Role</label><br>
+        <input id="contact_role"><br><br>
+
+        <label>Footer Text</label><br>
+        <input id="footer_text"><br><br>
+
+        <label>Trip Date (Countdown)</label><br>
+        <input type="datetime-local" id="trip_date"><br><br>
 
         <button onclick="generateJSON()">Generate JSON</button>
         <button onclick="loadJSON()">Load JSON</button>
@@ -42,60 +59,15 @@
 
 <script>
 
-// 🔑 password
+// 🔐 password
 function unlock() {
     const pwd = prompt("Enter password:");
     if (pwd === "admin123") {
         document.getElementById("editor").style.display = "block";
-        buildEditor();
         loadJSON();
     } else {
         alert("Wrong password");
     }
-}
-
-// 🧠 ALL editable keys (this matches your texts.json)
-const keys = [
-    "main_title","site_title","admin_content","contact_name","contact_phone","contact_role","footer_text","trip_date",
-
-    "work_title","work_intro","work_overview_title","work_overview_list",
-    "work_expectations_title","work_expectations_list",
-    "work_comm_title","work_comm_text","work_comm_list",
-    "work_food_title","work_food_list",
-    "work_prof_title","work_prof_text","work_prof_list"
-];
-
-// 🏗️ build inputs dynamically
-function buildEditor() {
-    const container = document.getElementById("fields-container");
-    container.innerHTML = "";
-
-    keys.forEach(key => {
-        const wrapper = document.createElement("div");
-
-        const label = document.createElement("label");
-        label.innerText = key;
-
-        let input;
-
-        if (key.includes("list") || key.includes("content") || key.includes("text")) {
-            input = document.createElement("textarea");
-            input.rows = 3;
-        } else {
-            input = document.createElement("input");
-            input.type = "text";
-        }
-
-        input.id = key;
-
-        wrapper.appendChild(label);
-        wrapper.appendChild(document.createElement("br"));
-        wrapper.appendChild(input);
-        wrapper.appendChild(document.createElement("br"));
-        wrapper.appendChild(document.createElement("br"));
-
-        container.appendChild(wrapper);
-    });
 }
 
 // 📥 load JSON
@@ -104,11 +76,22 @@ async function loadJSON() {
         const res = await fetch("texts.json");
         const data = await res.json();
 
-        keys.forEach(key => {
-            if (document.getElementById(key)) {
-                document.getElementById(key).value = data[key] || "";
+        document.getElementById("main_title").value = data.main_title || "";
+        document.getElementById("admin_content").value = data.admin_content || "";
+        document.getElementById("contact_name").value = data.contact_name || "";
+        document.getElementById("contact_phone").value = data.contact_phone || "";
+        document.getElementById("contact_role").value = data.contact_role || "";
+        document.getElementById("footer_text").value = data.footer_text || "";
+
+        // ✅ FIXED DATE LOADING
+        if (data.trip_date) {
+            const dt = new Date(data.trip_date);
+
+            if (!isNaN(dt)) {
+                const formatted = dt.toISOString().slice(0,16);
+                document.getElementById("trip_date").value = formatted;
             }
-        });
+        }
 
     } catch (e) {
         alert("Could not load texts.json");
@@ -117,14 +100,17 @@ async function loadJSON() {
 
 // 📤 generate JSON
 function generateJSON() {
-    const data = {};
+    const data = {
+        main_title: document.getElementById("main_title").value,
+        admin_content: document.getElementById("admin_content").value,
+        contact_name: document.getElementById("contact_name").value,
+        contact_phone: document.getElementById("contact_phone").value,
+        contact_role: document.getElementById("contact_role").value,
+        footer_text: document.getElementById("footer_text").value,
 
-    keys.forEach(key => {
-        const el = document.getElementById(key);
-        if (el) {
-            data[key] = el.value;
-        }
-    });
+        // ✅ FIXED DATE SAVE (IMPORTANT)
+        trip_date: document.getElementById("trip_date").value
+    };
 
     document.getElementById("output").value =
         JSON.stringify(data, null, 4);
@@ -132,7 +118,7 @@ function generateJSON() {
 
 // 🧹 clear
 function clearAll() {
-    document.querySelectorAll("#fields-container input, #fields-container textarea")
+    document.querySelectorAll("#editor input, #editor textarea")
         .forEach(el => el.value = "");
 
     document.getElementById("output").value = "";
