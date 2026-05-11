@@ -1,17 +1,16 @@
 {
-  "main_title": "Spain Work Experience 2025/26",
-
-  "site_title": "🇪🇸 Spain 2025/26",
-
+  
+    "site_title": "Spain 2025/26",
+    "main_title": "Spain International Work Experience 2025/26",
+    "footer_text": "Leicester College | Spain Work Experience 2025/26",
+    "trip_date": "2026-06-01T08:00:00"
+  
   "admin_content": "<p>Welcome to the Spain Work Experience portal. Please check all sections carefully before departure.</p>",
 
   "contact_name": "Jodie Rolls",
   "contact_phone": "+44 1234 567890",
   "contact_role": "International Work Experience Coordinator",
 
-  "footer_text": "Leicester College | Spain Work Experience 2025/26",
-
-  "trip_date": "2026-06-01T08:00:00"
 
   /* ================= ITINERARY ================= */
   "itinerary_title": "Daily Itinerary & Schedule",
